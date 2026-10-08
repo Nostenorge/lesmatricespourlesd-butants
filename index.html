@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Les matrices — cours facile à lire</title>
+  <meta name="description" content="Un cours facile à lire pour comprendre les matrices, avec des exemples et des exercices." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<a class="skip" href="#cours">Aller au cours</a>
+<header class="hero"><div class="hero-text">
+<p class="eyebrow">Cours facile à lire · 10 étapes</p>
+<h1 class="title-box"><span>Les matrices</span></h1>
+<p class="lead">Ce cours explique les matrices.<br>Les phrases sont courtes.<br>Les mots difficiles sont expliqués.<br>Vous pouvez faire des essais.</p>
+<div class="hero-actions"><a class="btn btn-primary" href="#definition">Commencer le cours</a><a class="btn" href="les-matrices.pdf" target="_blank" rel="noopener">Ouvrir la carte (PDF)</a></div>
+</div></header>
+<nav class="map" aria-label="Plan du cours"><p class="map-title">Les 10 étapes</p><ol>
+<li><a href="#definition" style="--c: var(--peach)">Définition</a></li><li><a href="#vecteur" style="--c: var(--lilac)">Vecteur</a></li><li><a href="#carree" style="--c: var(--pink)">Matrice carrée</a></li><li><a href="#identite" style="--c: var(--aqua)">Matrice identité</a></li><li><a href="#operations" style="--c: var(--orange)">Calculs de base</a></li><li><a href="#proprietes" style="--c: var(--sand)">Autres notions</a></li><li><a href="#inverse" style="--c: var(--blue)">Matrice inverse</a></li><li><a href="#applications" style="--c: var(--green)">À quoi ça sert ?</a></li><li><a href="#ia" style="--c: var(--lime)">Matrices et IA</a></li><li><a href="#quiz" style="--c: var(--ink)">Quiz</a></li></ol></nav>
+<main id="cours">
+<section class="chapter " id="definition" style="--c: var(--peach)"><div class="chapter-head"><span class="num">01</span><h2 class="box-title">Définition</h2></div><div class="chapter-body"><div class="prose">
+<p class="retenir">Une matrice est un tableau de nombres.</p>
+<p>Le tableau a des lignes.<br>Une ligne va de gauche à droite.</p>
+<p>Le tableau a des colonnes.<br>Une colonne va de haut en bas.</p>
+<p>On donne la taille avec 2 nombres.<br>Exemple : 2 × 3.<br>Cela veut dire : 2 lignes et 3 colonnes.<br>On dit toujours les lignes en premier.</p>
+<p class="word"><strong>Mot difficile : coefficient</strong><br>Un coefficient est un nombre dans le tableau.</p>
+<div class="example"><p class="example-label">Exemple</p><div class="eq"><span>A =</span><div class="mx" data-m='[[2,-1,0],[5,3,7]]'></div></div>
+<p>A a 2 lignes.<br>A a 3 colonnes.<br>Sa taille est 2 × 3.<br>Le nombre en ligne 2 et colonne 3 est le 7.</p></div></div>
+<aside class="lab"><p class="lab-title">Essayez</p><p class="lab-hint">Touchez un nombre. Sa place s'affiche.</p>
+<div class="mx explorable" id="explore-mx" data-m="[[4,0,-2,9],[1,6,3,-5],[8,-7,2,1]]"></div><p class="readout" id="explore-out" aria-live="polite">Taille : 3 lignes et 4 colonnes</p></aside>
+<a class="video-card" data-yt="W0dfX4sDq5g" href="https://www.youtube.com/watch?v=W0dfX4sDq5g" target="_blank" rel="noopener"><span class="video-tag">Vidéo</span><span class="video-name">Qu'est-ce qu'une matrice ?</span></a></div></section>
+<section class="chapter " id="vecteur" style="--c: var(--lilac)"><div class="chapter-head"><span class="num">02</span><h2 class="box-title">Vecteur</h2></div><div class="chapter-body"><div class="prose">
+<p class="retenir">Un vecteur est une matrice avec une seule colonne ou une seule ligne.</p>
+<p>Un vecteur montre un chemin.<br>Il a une direction.<br>Il a une longueur.</p>
+<div class="example"><p class="example-label">Deux façons de l'écrire</p>
+<div class="eq"><span>u =</span><div class="mx" data-m='[[3],[2]]'></div><small>Une colonne : c'est un vecteur colonne.</small></div>
+<div class="eq"><span>v =</span><div class="mx" data-m='[[3,2]]'></div><small>Une ligne : c'est un vecteur ligne.</small></div>
+<p>Le vecteur u va de 3 vers la droite.<br>Il va aussi de 2 vers le haut.</p></div></div>
+<aside class="lab"><p class="lab-title">Essayez</p><p class="lab-hint">Bougez les curseurs. Le vecteur change.</p>
+<div class="sliders"><label>x <input type="range" id="vx" min="-5" max="5" step="1" value="3"> <output id="vx-o">3</output></label>
+<label>y <input type="range" id="vy" min="-5" max="5" step="1" value="2"> <output id="vy-o">2</output></label></div>
+<svg class="plane" id="vec-svg" viewBox="-6 -6 12 12" role="img" aria-label="Dessin du vecteur u"></svg><p class="readout" id="vec-out" aria-live="polite"></p></aside>
+<a class="video-card" data-yt="201m7WBpXvY" href="https://www.youtube.com/watch?v=201m7WBpXvY" target="_blank" rel="noopener"><span class="video-tag">Vidéo</span><span class="video-name">Les vecteurs</span></a></div></section>
+<section class="chapter compact" id="carree" style="--c: var(--pink)"><div class="chapter-head"><span class="num">03</span><h2 class="box-title">Matrice carrée</h2></div><div class="chapter-body"><div class="prose">
+<p class="retenir">Une matrice carrée a autant de lignes que de colonnes.</p>
+<p>Exemple : 3 lignes et 3 colonnes.<br>On écrit 3 × 3.</p>
+<p>Les nombres en couleur forment la diagonale.<br>La diagonale va du haut à gauche vers le bas à droite.</p></div>
+<div class="example"><p class="example-label">Exemple</p><div class="eq"><span>B =</span><div class="mx diag" data-m="[[5,1,4],[2,8,0],[-3,6,1]]"></div></div></div></div></section>
+<section class="chapter compact" id="identite" style="--c: var(--aqua)"><div class="chapter-head"><span class="num">04</span><h2 class="box-title">Matrice identité</h2></div><div class="chapter-body"><div class="prose">
+<p class="retenir">La matrice identité est une matrice carrée. Elle a des 1 sur la diagonale. Elle a des 0 partout ailleurs.</p>
+<p>Elle ressemble au nombre 1.<br>Si on multiplie A par la matrice identité, on garde A.</p></div>
+<div class="example"><p class="example-label">Choisissez la taille</p>
+<div class="seg" role="group" aria-label="Taille de la matrice identité"><button type="button" data-n="2">I₂</button><button type="button" data-n="3" aria-pressed="true">I₃</button><button type="button" data-n="4">I₄</button></div>
+<div class="eq"><span id="id-label">I₃ =</span><div class="mx diag" id="id-mx"></div></div></div></div></section>
+<section class="chapter " id="operations" style="--c: var(--orange)"><div class="chapter-head"><span class="num">05</span><h2 class="box-title">Calculs de base</h2></div><div class="chapter-body wide"><div class="prose">
+<h3>Additionner et soustraire</h3>
+<p>On calcule case par case.<br>Les 2 matrices doivent avoir la même taille.</p>
+<h3>Multiplier</h3>
+<p>On peut multiplier A par B dans un seul cas.<br>Le nombre de colonnes de A doit être égal au nombre de lignes de B.</p>
+<p>Pour chaque case du résultat, on prend une ligne de A et une colonne de B.<br>On multiplie les nombres 2 par 2.<br>Puis on additionne.</p>
+<h3>Attention à l'ordre</h3>
+<p class="retenir">A × B n'est pas pareil que B × A.</p>
+<p>Il faut respecter l'ordre.</p></div>
+<div class="workshop" id="ops-lab"><p class="lab-title">Essayez les calculs</p><p class="lab-hint">Changez les nombres. Choisissez un calcul. Touchez une case du résultat pour voir comment on a calculé.</p>
+<div class="ws-grid"><div class="editor" data-name="A"></div><div class="ops" role="group" aria-label="Calcul"><button type="button" data-op="add">A + B</button><button type="button" data-op="sub">A − B</button><button type="button" data-op="mul" aria-pressed="true">A × B</button><button type="button" data-op="bma">B × A</button></div><div class="editor" data-name="B"></div></div>
+<div class="result" id="ops-result" aria-live="polite"></div><div class="steps" id="ops-steps"></div></div>
+<a class="video-card" data-list="PLVUDmbpupCapcDUDG8urAmLovJBga4pu4" href="https://www.youtube.com/playlist?list=PLVUDmbpupCapcDUDG8urAmLovJBga4pu4" target="_blank" rel="noopener"><span class="video-tag">Vidéos</span><span class="video-name">Calcul avec les matrices</span></a></div></section>
+<section class="chapter " id="proprietes" style="--c: var(--sand)"><div class="chapter-head"><span class="num">06</span><h2 class="box-title">Autres notions</h2></div><div class="chapter-body wide"><dl class="defs">
+<div><dt>Transposée</dt><dd>On échange les lignes et les colonnes.<br>On l'écrit Aᵀ.</dd></div>
+<div><dt>Matrice symétrique</dt><dd>Elle est la même que sa transposée : A = Aᵀ.<br>Elle est forcément carrée.</dd></div>
+<div><dt>Déterminant</dt><dd>C'est un nombre calculé avec une matrice carrée.<br>Pour une matrice 2 × 2 : a × d − b × c.</dd></div>
+<div><dt>Rang</dt><dd>C'est le nombre de lignes qui sont vraiment différentes.<br>Une ligne n'est pas comptée si on peut la fabriquer avec les autres.</dd></div></dl>
+<div class="workshop" id="props-lab"><p class="lab-title">Analysez une matrice</p>
+<div class="presets" role="group" aria-label="Exemples"><span>Exemples :</span><button type="button" data-preset="[[2,7,1],[7,3,4],[1,4,5]]">symétrique</button><button type="button" data-preset="[[1,2,3],[2,4,6],[0,1,5]]">rang 2</button><button type="button" data-preset="[[4,3],[6,3]]">2 × 2</button><button type="button" data-preset="[[1,0,2,-1],[3,1,0,2]]">pas carrée</button></div>
+<div class="props-grid"><div class="editor" data-name="A"></div><div class="props-out">
+<div class="stat"><span class="stat-k">Transposée Aᵀ</span><div class="mx sm" id="pr-t"></div></div>
+<div class="stat-row"><div class="stat"><span class="stat-k">Symétrique ?</span><span class="stat-v" id="pr-sym"></span></div><div class="stat"><span class="stat-k">Déterminant</span><span class="stat-v" id="pr-det"></span></div><div class="stat"><span class="stat-k">Rang</span><span class="stat-v" id="pr-rank"></span></div></div>
+<p class="readout" id="pr-note" aria-live="polite"></p></div></div></div></div></section>
+<section class="chapter " id="inverse" style="--c: var(--blue)"><div class="chapter-head"><span class="num">07</span><h2 class="box-title">Matrice inverse</h2></div><div class="chapter-body"><div class="prose">
+<p class="retenir">La matrice inverse de A s'écrit A⁻¹. Si on multiplie A par A⁻¹, on trouve la matrice identité.</p>
+<p>Toutes les matrices n'ont pas un inverse.<br>Il faut une matrice carrée.<br>Il faut aussi que le déterminant ne soit pas 0.</p>
+<div class="example"><p class="example-label">Pour une matrice 2 × 2</p><p>1. On calcule le déterminant : a × d − b × c.<br>2. On échange a et d.<br>3. On change le signe de b et de c.<br>4. On divise tout par le déterminant.</p></div></div>
+<aside class="lab" id="inv-lab"><p class="lab-title">Essayez</p><p class="lab-hint">Changez les nombres de A. L'inverse se calcule tout seul.</p><div class="editor fixed" data-name="A" data-size="2x2" data-init="[[4,7],[2,6]]"></div><div id="inv-out" aria-live="polite"></div></aside>
+<a class="video-card" data-yt="4QMzwWY6T7g" href="https://www.youtube.com/watch?v=4QMzwWY6T7g" target="_blank" rel="noopener"><span class="video-tag">Vidéo</span><span class="video-name">La matrice inverse</span></a></div></section>
+<section class="chapter " id="applications" style="--c: var(--green)"><div class="chapter-head"><span class="num">08</span><h2 class="box-title">À quoi ça sert ?</h2></div><div class="chapter-body"><div class="prose">
+<p class="retenir">Les matrices servent quand il y a beaucoup de nombres.</p>
+<ul class="tags"><li>Résoudre des problèmes de calcul</li><li>Tourner ou agrandir un dessin</li><li>Retoucher des images</li><li>Étudier des réseaux</li><li>Protéger des messages secrets</li><li>Faire fonctionner l'intelligence artificielle</li></ul></div>
+<aside class="lab"><p class="lab-title">Essayez : tourner un dessin</p><p class="lab-hint">Bougez les curseurs. Le trait en pointillés montre le dessin de départ.</p>
+<div class="sliders"><label>Rotation <input type="range" id="t-rot" min="-180" max="180" step="5" value="30"> <output id="t-rot-o">30°</output></label>
+<label>Taille <input type="range" id="t-k" min="0.25" max="2" step="0.05" value="1"> <output id="t-k-o">1</output></label></div>
+<svg class="plane" id="tr-svg" viewBox="-6 -6 12 12" role="img" aria-label="Dessin avant et après"></svg>
+<div class="eq small"><span>Matrice M =</span><div class="mx sm" id="tr-mx"></div></div><p class="lab-hint">Chaque point du dessin est multiplié par M.</p></aside></div></section>
+<section class="chapter " id="ia" style="--c: var(--lime)"><div class="chapter-head"><span class="num">09</span><h2 class="box-title">Matrices et IA</h2></div><div class="chapter-body wide"><div class="prose">
+<p class="retenir">L'intelligence artificielle (IA) utilise beaucoup de matrices.</p>
+<h3>Les données</h3><p>Les données sont rangées dans un tableau.<br>Une ligne = un exemple.<br>Une colonne = une information sur cet exemple.</p>
+<h3>La prédiction</h3><p>L'IA multiplie le tableau par des poids.<br>Un poids dit si une information compte beaucoup ou peu.<br>Le résultat est une prédiction.</p>
+<h3>L'apprentissage</h3><p>L'IA change les poids pour faire moins d'erreurs.<br>Elle le fait avec la descente de gradient.</p>
+<p class="word"><strong>Mot difficile : descente de gradient</strong><br>C'est une méthode. Elle corrige les poids petit à petit.</p></div>
+<div class="workshop" id="ia-lab"><p class="lab-title">Essayez : entraîner une IA</p><p class="lab-hint">L'IA prédit le prix de location d'un vélo-cargo. Elle utilise la durée et la distance. Changez les poids pour faire baisser l'erreur. Ou touchez « Entraîner ».</p>
+<div class="ia-grid"><div class="ia-table"><table><caption>Prix réel et prix prédit</caption><thead><tr><th>Personne</th><th>Durée</th><th>Distance</th><th>Prix réel</th><th>Prix prédit</th></tr></thead><tbody id="ia-body"></tbody></table></div>
+<div class="ia-controls"><label>Poids 1 (€ par heure) <input type="range" id="w1" min="0" max="10" step="0.1" value="2"> <output id="w1-o"></output></label>
+<label>Poids 2 (€ par km) <input type="range" id="w2" min="0" max="3" step="0.05" value="0.5"> <output id="w2-o"></output></label>
+<div class="loss"><span class="stat-k">Erreur moyenne (plus petit = mieux)</span><span class="stat-v" id="ia-loss"></span><div class="bar"><span id="ia-bar"></span></div></div>
+<div class="ia-btns"><button type="button" class="btn btn-primary" id="ia-step">Un pas</button><button type="button" class="btn" id="ia-run">Entraîner</button><button type="button" class="btn ghost" id="ia-reset">Recommencer</button></div></div></div></div></div></section>
+<section class="chapter " id="quiz" style="--c: var(--ink)"><div class="chapter-head"><span class="num">10</span><h2 class="box-title">Quiz</h2></div><div class="chapter-body wide"><form id="quiz-form" class="quiz"></form>
+<div class="quiz-foot"><button type="button" class="btn btn-primary" id="quiz-check">Voir mes résultats</button><button type="button" class="btn ghost" id="quiz-reset">Recommencer</button><p class="quiz-score" id="quiz-score" aria-live="polite"></p></div></div></section>
+</main>
+<footer class="foot"><p>Ce cours vient de la carte « <a href="les-matrices.pdf" target="_blank" rel="noopener">Les matrices</a> », réécrite en facile à lire.</p><a href="#" class="top">Retour en haut ↑</a></footer>
+<dialog class="player" id="player"><div class="player-inner"><button type="button" class="player-close" id="player-close" aria-label="Fermer la vidéo">×</button><div class="player-frame" id="player-frame"></div></div></dialog>
+<script src="app.js"></script>
+</body>
+</html>
